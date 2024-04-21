@@ -3,7 +3,7 @@ pokaz_date(){
 	date  # To wywołuje polecenie date, które zwraca aktualną datę i godzinę.
 }
 stworz_logi(){
-	local num_logs=100
+	local num_logs=${1:-100}
 	for ((i=1; i<=$num_logs; i++)) do
 		plik="log$i.txt"
 		echo "Nazwa pliku: $plik" > "$plik"
@@ -17,7 +17,7 @@ case "$1" in
 		pokaz_date
 		;;
 	"--logs")
-		stworz_logi
+		stworz_logi "$2"
 		;;
 	*)
 		echo "Nieznane polecenie: $1. Wpisz 'skrypt.sh help', jeśli nie wiesz, co zrobić."
