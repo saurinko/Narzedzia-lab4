@@ -17,6 +17,8 @@ uzycie_help(){
 	echo "help             -h   Wyświetla pomoc"
 	echo "--date           -d   Wyświetla dzisiejszą datę"
 	echo "--logs <liczba>  -l   Tworzy <liczba> plików logów. Domyślnie 100."
+	echo "--init           -i   Klonuje całe repozytorium do katalogu, w którym został uruchomiony oraz ustawia ścieżkę w zmiennej środowiskowej PATH."
+	echo "--error <liczba> -e   Tworzt <liczba> plików błędów. Domyślnie 100."
 }
 klonowanie_repo(){
 	git clone
@@ -30,7 +32,7 @@ stworz_error(){
 		plik="error$i.txt"
 		echo "To plik błędu numer $i." > "plik"
 	done
-	echo "Utworzono $num_error plików błędów.
+	echo "Utworzono $num_error plików błędów."
 }
 case "$1" in
 	"--date" | "-d")
@@ -42,10 +44,10 @@ case "$1" in
 	"--help" | "-h")
 		uzycie_help
 		;;
-	"--init")
+	"--init" | "-i")
 		klonowanie_repo
 		;;
-	"--error")
+	"--error" | "-e")
 		stworz_error
 		;;
 	*)
