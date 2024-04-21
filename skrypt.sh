@@ -18,6 +18,12 @@ uzycie_help(){
 	echo "--date           -d   Wyświetla dzisiejszą datę"
 	echo "--logs <liczba>  -l   Tworzy <liczba> plików logów. Domyślnie 100."
 }
+klonowanie_repo(){
+	git clone
+	aktualna_sciezka=$(pwd)
+	export PATH="$aktualna_sciezka/.git:$PATH"
+	echo "Repozytorium zostało sklonowane, a ścieżka dodana do zmiennej PATH."
+}
 case "$1" in
 	"--date" | "-d")
 		pokaz_date
@@ -27,6 +33,9 @@ case "$1" in
 		;;
 	"--help" | "-h")
 		uzycie_help
+		;;
+	"--init")
+		klonowanie_repo
 		;;
 	*)
 		echo "Nieznane polecenie: $1. Wpisz 'skrypt.sh help', jeśli nie wiesz, co zrobić."
