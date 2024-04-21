@@ -14,18 +14,18 @@ stworz_logi(){
 }
 uzycie_help(){
 	echo "Użycie: skrypt.sh - co można zrobić:"
-	echo "help            - Wyświetla pomoc"
-	echo "--date          - Wyświetla dzisiejszą datę"
-	echo "--logs <liczba> - Tworzy <liczba> plików logów. Domyślnie 100."
+	echo "help             -h   Wyświetla pomoc"
+	echo "--date           -d   Wyświetla dzisiejszą datę"
+	echo "--logs <liczba>  -l   Tworzy <liczba> plików logów. Domyślnie 100."
 }
 case "$1" in
-	"--date")
+	"--date" | "-d")
 		pokaz_date
 		;;
-	"--logs")
+	"--logs" | "-l")
 		stworz_logi "$2"
 		;;
-	"--help")
+	"--help" | "-h")
 		uzycie_help
 		;;
 	*)
