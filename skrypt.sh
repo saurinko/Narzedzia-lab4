@@ -24,6 +24,14 @@ klonowanie_repo(){
 	export PATH="$aktualna_sciezka/.git:$PATH"
 	echo "Repozytorium zostało sklonowane, a ścieżka dodana do zmiennej PATH."
 }
+stworz_error(){
+	local num_error=${1:-100}
+	for ((i=1; i<=$num_error; i++)); do
+		plik="error$i.txt"
+		echo "To plik błędu numer $i." > "plik"
+	done
+	echo "Utworzono $num_error plików błędów.
+}
 case "$1" in
 	"--date" | "-d")
 		pokaz_date
@@ -36,6 +44,9 @@ case "$1" in
 		;;
 	"--init")
 		klonowanie_repo
+		;;
+	"--error")
+		stworz_error
 		;;
 	*)
 		echo "Nieznane polecenie: $1. Wpisz 'skrypt.sh help', jeśli nie wiesz, co zrobić."
