@@ -12,12 +12,21 @@ stworz_logi(){
 	done
 	echo "Utworzono $num_logs plików logów."
 }
+uzycie_help(){
+	echo "Użycie: skrypt.sh - co można zrobić:"
+	echo "help            - Wyświetla pomoc"
+	echo "--date          - Wyświetla dzisiejszą datę"
+	echo "--logs <liczba> - Tworzy <liczba> plików logów. Domyślnie 100."
+}
 case "$1" in
 	"--date")
 		pokaz_date
 		;;
 	"--logs")
 		stworz_logi "$2"
+		;;
+	"--help")
+		uzycie_help
 		;;
 	*)
 		echo "Nieznane polecenie: $1. Wpisz 'skrypt.sh help', jeśli nie wiesz, co zrobić."
